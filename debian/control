@@ -1,0 +1,20 @@
+Source: ibus-m17n
+Section: utils
+Priority: optional
+Maintainer: IME Packaging Team <pkg-ime-devel@lists.alioth.debian.org>
+Uploaders: LI Daobing <lidaobing@debian.org>, Asias He <asias.hejun@gmail.com>
+Build-Depends: debhelper (>= 7), autotools-dev, libm17n-dev, pkg-config,
+ libibus-dev (>= 1.2.99), libgtk2.0-dev
+Standards-Version: 3.9.1
+Homepage: http://code.google.com/p/ibus
+Vcs-Bzr: lp:~pkg-ime/ibus/debian-ibus-m17n
+Vcs-Browser: https://code.launchpad.net/~pkg-ime/ibus/debian-ibus-m17n
+
+Package: ibus-m17n
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ibus (>= 1.2.99)
+Description: m17n engine for IBus
+ IBus-m17n is a IM Engine for multiple languages, based on IBus.
+ .
+ IBus-m17n enables IBus to input many non-latin characters from the keyboard
+ using libm17n library.
