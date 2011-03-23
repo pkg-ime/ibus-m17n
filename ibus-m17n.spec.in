@@ -1,0 +1,52 @@
+Name:       ibus-m17n
+Version:    @PACKAGE_VERSION@
+Release:    1%{?dist}
+Summary:    The M17N engine for IBus platform
+License:    GPLv2+
+Group:      System Environment/Libraries
+URL:        http://code.google.com/p/ibus/
+Source0:    http://ibus.googlecode.com/files/%{name}-%{version}.tar.gz
+
+BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
+BuildRequires:  gettext-devel
+BuildRequires:  libtool
+BuildRequires:  pkgconfig
+
+BuildRequires:  ibus-devel
+BuildRequires:  m17n-lib-devel
+Requires:   ibus
+Requires:   m17n-lib
+
+%description
+M17N engine for IBus input platform. It allows input of many languages using
+the input table maps from m17n-db.
+
+%prep
+%setup -q
+
+%build
+%configure --disable-static
+# make -C po update-gmo
+make %{?_smp_mflags}
+
+%install
+rm -rf $RPM_BUILD_ROOT
+make DESTDIR=${RPM_BUILD_ROOT} install
+
+%find_lang %{name}
+
+%clean
+rm -rf $RPM_BUILD_ROOT
+
+%files -f %{name}.lang
+%defattr(-,root,root,-)
+%doc AUTHORS COPYING README
+%{_datadir}/ibus-m17n
+%{_libexecdir}/ibus-engine-m17n
+%{_datadir}/ibus/component/*
+
+%changelog
+* Thu Aug 07 2008 Huang Peng <shawn.p.huang@gmail.com> - @VERSION@-1
+- The first version.
+
+
