@@ -4,15 +4,16 @@ Priority: optional
 Maintainer: IME Packaging Team <pkg-ime-devel@lists.alioth.debian.org>
 Uploaders: LI Daobing <lidaobing@debian.org>, Asias He <asias.hejun@gmail.com>
 Build-Depends: debhelper (>= 7), autotools-dev, libm17n-dev, pkg-config,
- libibus-dev (>= 1.2.99), libgtk2.0-dev
-Standards-Version: 3.9.1
+ libibus-1.0-dev, libgtk2.0-dev
+Standards-Version: 3.9.2
 Homepage: http://code.google.com/p/ibus
-Vcs-Bzr: lp:~pkg-ime/ibus/debian-ibus-m17n
-Vcs-Browser: https://code.launchpad.net/~pkg-ime/ibus/debian-ibus-m17n
+Vcs-Git: git://git.debian.org/pkg-ime/ibus-m17n.git
+Vcs-Browser: http://git.debian.org/?p=pkg-ime/ibus-m17n.git
+DM-Upload-Allowed: yes
 
 Package: ibus-m17n
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, ibus (>= 1.2.99)
+Depends: ${shlibs:Depends}, ${misc:Depends}, ibus (>= 1.3.99.20110419)
 Description: m17n engine for IBus
  IBus-m17n is a IM Engine for multiple languages, based on IBus.
  .
